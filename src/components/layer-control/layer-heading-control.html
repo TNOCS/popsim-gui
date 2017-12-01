@@ -1,0 +1,12 @@
+<li>
+  <div v-if="isFolder" @click="toggle()" class="heading">{{ heading.title }} <span>[{{isCollapsed ? '-' : '+'}}]</span></div>
+  <div v-if="!isFolder">
+      <input :id="id" type="checkbox" v-model="isSelected" class="item" @change="itemSelected()"></input>
+      <label :for="id">{{ heading.title }}</label>
+      </div>
+  <ul v-show="!isCollapsed">
+    <layer-heading-control v-for="child in heading.data" :heading="child" :key="id"
+    @unselect:item="unselectItem"
+    @select:item="selectItem"></layer-heading-control>
+  </ul>
+</li>

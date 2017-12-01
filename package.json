@@ -1,0 +1,37 @@
+{
+  "name": "cshome",
+  "description": "A csnext Vue.js project",
+  "version": "1.0.0",
+  "author": "damylen <damylen@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --host localhost ",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "csdev": "yarn link @csnext/cs-client && yarn link @csnext/cs-core && yarn link @csnext/cs-gridstack",
+    "all": "concurrently \"yarn csdev\" \"yarn dev\" \"cd ./../../csnext && yarn dev\""
+  },
+  "dependencies": {
+    "vue": "^2.5.2",
+    "vuetify": "^0.17.3",
+    "ol" : "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/geojson": "^1.0.6",
+    "@csnext/cs-client": "^0.0.5",
+    "@types/openlayers": "^4.3.11",    
+    "awesome-typescript-loader": "^3.3.0",
+    "raw-loader": "^0.5.1",    
+    "cross-env": "^5.1.1",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "style-loader": "^0.19.0",
+    "ts-loader": "^3.1.1",
+    "typescript": "^2.6.1",
+    "vue-class-component": "^6.0.0",
+    "vue-loader": "^13.3.0",
+    "vue-property-decorator": "^6.0.0",
+    "vue-template-compiler": "^2.5.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
+  }
+}

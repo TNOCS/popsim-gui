@@ -1,0 +1,22 @@
+<div class="layer-control">
+  <!-- <div class="row">
+    <ul class="tabs">
+      <li class="tab col s6">
+        <a href="#base-maps">Base maps</a>
+      </li>
+      <li class="tab col s6">
+        <a class="active" href="#overlays">Overlays</a>
+      </li>
+    </ul>
+  </div>
+  <div id="base-maps" class="col s12">
+    <ul>
+      <layer-heading-control v-for="heading in baseMaps" :heading="heading" :key="heading.id" @unselect:item="unselectBaseMap" @select:item="selectBaseMap"></layer-heading-control>
+    </ul>
+  </div> -->
+  <div id="overlays" class="col s12">
+    <ul>
+      <layer-heading-control v-for="heading in overlays" :heading="heading" :key="heading.id" @unselect:item="unselectLayer" @select:item="selectLayer"></layer-heading-control>
+    </ul>
+  </div>
+</div>
