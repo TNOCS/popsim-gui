@@ -1,6 +1,6 @@
-import { IDatasourceParser } from './../datasource/datasource-parser';
-import { IDatasourceResolver } from './../datasource/datasource-resolver';
-import { IDatasource } from './../datasource/datasource';
+import { IDatasourceParser } from '../datasource/datasource-parser';
+import { IDatasourceResolver } from '../datasource/datasource-resolver';
+import { IDatasource } from '../datasource/datasource';
 
 /**
  * The datasource manager is responsible for:
@@ -16,7 +16,7 @@ import { IDatasource } from './../datasource/datasource';
  * It is not responsible for:
  * - retreiving the data (that is the responsibility of the datasource's resolver)
  * - managing the relationship of the different datasources, e.g. the relationship between a style datasource and the actual data
- *  
+ *
  */
 export class DatasourceManager {
   protected datasources: { [id: string]: IDatasource } = {};
