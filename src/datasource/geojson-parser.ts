@@ -25,9 +25,9 @@ export class GeojsonParser implements IDatasourceParser {
    * @memberof GeojsonParser
    */
   public async parse(geojson: GeoJSON.FeatureCollection<GeoJSON.GeometryObject>, dm: DatasourceManager, options?: { parseOptions?: IGeojsonParserOptions }) {
-    const parserOptions = options ? options.parseOptions : undefined;
-    const resourceDatasource = parserOptions ? await dm.loadData(parserOptions.resourceTypeId) : undefined;
-    const resourceType = resourceDatasource ? resourceDatasource.data : undefined;
+    // const parserOptions = options ? options.parseOptions : undefined;
+    // const resourceDatasource = parserOptions ? await dm.loadData(parserOptions.resourceTypeId) : undefined;
+    // const resourceType = resourceDatasource ? resourceDatasource.data : undefined;
     let count = 0;
     geojson.features.forEach(f => {
       if (!f.hasOwnProperty('properties')) {

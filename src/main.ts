@@ -1,35 +1,34 @@
-import { GeojsonParser } from './datasource/geojson-parser';
-import { JsonResolver } from './datasource/json-resolver';
-import { DatasourceManager } from './services/datasource-manager';
-import { IDatasource } from './datasource/datasource';
-import { ILayerDatasource } from './datasource/layer-datasource';
-import { IHierarchicalLayerDatasource } from './datasource/hierarchical-layer-datasource';
+// import { GeojsonParser } from './datasource/geojson-parser';
+// import { JsonResolver } from './datasource/json-resolver';
+// import { DatasourceManager } from './services/datasource-manager';
+// import { IDatasource } from './datasource/datasource';
+// import { ILayerDatasource } from './datasource/layer-datasource';
+// import { IHierarchicalLayerDatasource } from './datasource/hierarchical-layer-datasource';
 import { OpenLayers } from './components/openlayers/openlayers';
 import Vue from 'vue';
-import { Prop, Watch, Provide } from 'vue-property-decorator';
-import { AppState, csapp } from '@csnext/cs-client';
-import Vuetify from "vuetify";
-import "../node_modules/vuetify/dist/vuetify.css";
+import { AppState, CsApp, Logger } from '@csnext/cs-client';
+import '../node_modules/vuetify/dist/vuetify.css';
 import { LayerControl } from './components/layer-control/layer-control';
 
 import './assets/style.css';
-import map from 'ol/map';
+// import map from 'ol/map';
 
+// tslint:disable-next-line:no-unused-new
 new Vue({
   el: '#app',
-  render: (h: any) => h(csapp)
+  render: (h: any) => h(CsApp)
 });
 
-var layers: IDatasource[] = [];
-var overlays: IHierarchicalLayerDatasource[];
+// const layers: IDatasource[] = [];
+// const overlays: IHierarchicalLayerDatasource[];
 
-// @Provide() var ldm: DatasourceManager;
+// @Provide() const ldm: DatasourceManager;
 const appState = AppState.Instance;
 
 const project = {
-  title: "popsim-gui",
+  title: 'popsim-gui',
   navigation: {
-    style: "tabs"
+    style: 'tabs'
   },
   datasources: {
     'test': {
@@ -41,7 +40,7 @@ const project = {
     }
   },
   leftSidebar: {
-    open: true,
+    open: false,
     clipped: true,
     persistent: true,
     mini: false,
@@ -62,23 +61,18 @@ const project = {
   },
   dashboards: [
     {
-      path: "/",
-      icon: "map",
-      manager: "single",
-      title: "Map",
+      path: '/',
+      icon: 'map',
+      manager: 'single',
+      title: 'Map',
       widgets: [{ component: OpenLayers }]
     }
   ]
 };
-appState.Init(project);
+const logger = Logger.Instance;
+appState.init(project);
 (<any>window).app = appState;
-appState.projectManager.datasourceManager.load('test').then((result: Object) => {
-  debugger;-
-
-  console.log('Test:');
-  console.log(result);
-});
-
+appState.projectManager.datasourceManager.load('test').then((result: Object) => logger.info('main.ts', result));
 
 // function initLayerControl() {
 //   overlays = [
