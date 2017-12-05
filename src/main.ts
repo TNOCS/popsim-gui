@@ -49,7 +49,7 @@ const project = {
     temporary: false,
     component: LayerControl
   },
-  theme: {
+  theme: {    
     colors: {
       primary: 'white',
       secondary: '#e5e9ea',
@@ -73,7 +73,7 @@ const project = {
 const logger = Logger.Instance;
 appState.init(project);
 (<any>window).app = appState;
-appState.projectManager.datasourceManager.load('test').then((result: Object) => logger.info('main.ts', result));
+appState.loadDatasource('test').then((result: Object) => {
 
 // function initLayerControl() {
 //   overlays = [
