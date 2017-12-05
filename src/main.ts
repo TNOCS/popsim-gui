@@ -33,9 +33,11 @@ const project = {
   datasources: {
     'test': {
       id: 'test',
-      source: 'http://169.254.80.80:8080/ziekenhuis.json',
+      source: 'data/test.geojson',
       handlers: [{
         processorId: 'webrequest'
+      }, {
+        processorId: 'geojson'
       }]
     }
   },
@@ -48,7 +50,6 @@ const project = {
     component: LayerControl
   },
   theme: {
-    dark: false,
     colors: {
       primary: 'white',
       secondary: '#e5e9ea',

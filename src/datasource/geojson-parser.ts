@@ -29,14 +29,14 @@ export class GeojsonParser implements IDatasourceParser {
     // const resourceDatasource = parserOptions ? await dm.loadData(parserOptions.resourceTypeId) : undefined;
     // const resourceType = resourceDatasource ? resourceDatasource.data : undefined;
     let count = 0;
-    geojson.features.forEach(f => {
-      if (!f.hasOwnProperty('properties')) {
-        f.properties = { id: count++ };
-      } else if (!f.properties.hasOwnProperty('id')) {
-        f.properties.id = count++;
-      }
-      return f;
-    });
+    // geojson.features.forEach(f => {
+    //   if (!f.hasOwnProperty('properties')) {
+    //     f.properties = { id: count++ };
+    //   } else if (!f.properties.hasOwnProperty('id')) {
+    //     f.properties.id = count++;
+    //   }
+    //   return f;
+    // });
     return geojson;
   }
 }
