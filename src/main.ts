@@ -44,7 +44,7 @@ const project = {
   leftSidebar: {
     open: false,
     clipped: true,
-    persistent: true,
+    persistent: false,
     mini: false,
     temporary: false,
     component: LayerControl
