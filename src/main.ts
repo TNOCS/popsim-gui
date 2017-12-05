@@ -82,7 +82,7 @@ app.project = {
   ]
 };
 
-app.Init();
+app.Init(app.project);
 
 (<any>window).app = app;
 
