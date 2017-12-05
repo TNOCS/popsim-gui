@@ -71,7 +71,7 @@ const project = {
 };
 appState.Init(project);
 (<any>window).app = appState;
-appState.projectManager.datasourceManager.load('test').then((result: Object) => {
+appState.loadDatasource('test').then((result: Object) => {
   debugger;-
 
   console.log('Test:');
