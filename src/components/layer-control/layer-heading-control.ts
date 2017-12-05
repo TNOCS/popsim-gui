@@ -1,5 +1,5 @@
-import { ILayerDatasource } from './../../datasource/layer-datasource';
-import { IHierarchicalLayerDatasource } from './../../datasource/hierarchical-layer-datasource';
+import { ILayerDatasource } from '../../datasource/layer-datasource';
+import { IHierarchicalLayerDatasource } from '../../datasource/hierarchical-layer-datasource';
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Watch, Prop } from 'vue-property-decorator';

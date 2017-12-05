@@ -9,10 +9,11 @@ import Vue from 'vue';
 import { Prop, Watch, Provide } from 'vue-property-decorator';
 import { AppState, csapp } from '@csnext/cs-client';
 import Vuetify from "vuetify";
-import "./../node_modules/vuetify/dist/vuetify.css";
+import "../node_modules/vuetify/dist/vuetify.css";
 import { LayerControl } from './components/layer-control/layer-control';
 
 import './assets/style.css';
+import map from 'ol/map';
 
 new Vue({
   el: '#app',
@@ -23,34 +24,22 @@ var layers: IDatasource[] = [];
 var overlays: IHierarchicalLayerDatasource[];
 
 // @Provide() var ldm: DatasourceManager;
-const app = AppState.Instance;
+const appState = AppState.Instance;
 
-app.project = {
+const project = {
   title: "popsim-gui",
   navigation: {
     style: "tabs"
   },
-  // dataSources: {
-  //   "layer2": {
-  //     handler: [
-  //       {
-  //         processor: 'webrequest',
-  //         options: { topic: 'layer2' }
-  //       },
-  //       {
-  //         processor: 'geojson'
-  //       }
-  //     ]
-  //   },
-  //   "layer1": {
-  //     handler: [
-  //       {
-  //         processor: 'socket',
-  //         options: { url: '' }
-  //       }
-  //     ]
-  //   }
-  // },
+  datasources: {
+    'test': {
+      id: 'test',
+      source: 'http://169.254.80.80:8080/ziekenhuis.json',
+      handlers: [{
+        processorId: 'webrequest'
+      }]
+    }
+  },
   leftSidebar: {
     open: true,
     clipped: true,
@@ -81,10 +70,14 @@ app.project = {
     }
   ]
 };
+appState.Init(project);
+(<any>window).app = appState;
+appState.projectManager.datasourceManager.load('test').then((result: Object) => {
+  debugger;-
 
-app.Init(app.project);
-
-(<any>window).app = app;
+  console.log('Test:');
+  console.log(result);
+});
 
 
 // function initLayerControl() {

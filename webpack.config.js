@@ -9,51 +9,41 @@ module.exports = {
     filename: 'build.js'
   },
   module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        loader: 'awesome-typescript-loader',
-        options: {
-          appendTsSuffixTo: [/\.vue$/]
-        }
-      },
-      {
-        test: /\.html$/,
-        loader: 'raw-loader',
-        exclude: ['./src/index.html']
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-          }
-          // other vue-loader options go here
-        }
-      },
-      {
-        test: /\.css$/,
-        use: [{
-          loader: 'style-loader'
-        },
-        {
-          loader: 'css-loader'
-        }
-        ]
-      },
-      {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]?[hash]'
-        }
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file?name=public/fonts/[name].[ext]'
+    rules: [{
+      test: /\.ts$/,
+      exclude: /node_modules/,
+      loader: 'awesome-typescript-loader',
+      options: {
+        appendTsSuffixTo: [/\.vue$/]
       }
-    ]
+    }, {
+      test: /\.html$/,
+      loader: 'raw-loader',
+      exclude: ['./src/index.html']
+    }, {
+      test: /\.vue$/,
+      loader: 'vue-loader',
+      options: {
+        loaders: {}
+        // other vue-loader options go here
+      }
+    }, {
+      test: /\.css$/,
+      use: [{
+        loader: 'style-loader'
+      }, {
+        loader: 'css-loader'
+      }]
+    }, {
+      test: /\.(png|jpg|gif|svg)$/,
+      loader: 'file-loader',
+      options: {
+        name: '[name].[ext]?[hash]'
+      }
+    }, {
+      test: /\.(eot|svg|ttf|woff|woff2)$/,
+      loader: 'file?name=public/fonts/[name].[ext]'
+    }]
   },
   resolve: {
     extensions: ['.vue', '.ts', '.js'],
